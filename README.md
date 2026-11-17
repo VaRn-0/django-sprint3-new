@@ -1,23 +1,24 @@
 # Blogicum
 
-Проект рассчитан на Python 3.14 и Django 5.2.16.
+Учебный проект Яндекс Практикума (спринт 3) — блог на Django 5.2.
 
-Перед началом работы перенесите каталог `blogicum/` из выполненного задания
-первого спринта, затем скопируйте шаблоны из `templates/` в
-`blogicum/templates/`.
-
-## Локальный запуск
+## Запуск
 
 ```bash
-python3.14 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-pytest
-flake8 blogicum
+python -m venv venv
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # Linux / macOS
+pip install -r requirements.txt
 cd blogicum
-python manage.py check
-python manage.py makemigrations --check --dry-run
+python manage.py migrate
+python manage.py runserver
 ```
 
-Файл `requirements.txt` содержит только прямые зависимости задания и не
-должен перезаписываться командой `pip freeze`.
+## Тесты и линтер
+
+Из корня проекта:
+
+```bash
+pytest
+flake8 blogicum
+```
